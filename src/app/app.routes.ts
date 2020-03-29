@@ -12,8 +12,8 @@ const routes: Routes = [
     { path: 'register', component: LoginComponent },
     { path: 'progress', component: ProgressComponent },
     { path: 'graficas1', component: Graficas1Component },
-    /* DUM: cualquier ruta incorrecta direcciona al dashboard */
-    { path: '/dashboard', redirectTo: 'dashboard', pathMatch: 'full' },
+    /* DUM: la ruta por defecto direcciona al dashboard */
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     /* DUM: ruta incorrecta o no valida direciona a esta pagina de ruta no encontrada */
     { path: '**', component: NopagefoundComponent }
 ];
