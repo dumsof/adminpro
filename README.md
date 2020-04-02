@@ -26,6 +26,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## comandos de git hub como crear un tag, esto permite que se pueda hacer una copia del proyecto en algun para poder publicar o descargar
+comando para crear el tag
+git tag -a v1.0.0 -m "Versión 1"
+
+comando para subir el tag
+git push --tag
+
 ## DUM: COMANDOS PARA CLI GENERAR COMPONENES
 con este comando se genera el componente sin el archivo de prueba unitaria y hoja de estilo.
 ng g c shared/breadcrumbs --skip-tests -s
