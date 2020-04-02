@@ -9,6 +9,9 @@ import { PagesComponent } from './pages.component';
 /* modulos */
 import { SharedModule } from '../shared/shared.module';
 
+/* rutas hijas que serian las page */
+import { PAGES_ROUTES } from './pages.routes';
+
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { SharedModule } from '../shared/shared.module';
         ProgressComponent,
         Graficas1Component
     ],
-    imports: [SharedModule]
+    imports: [
+        SharedModule,
+        PAGES_ROUTES
+    ]
 })
 export class PagesModule { }
