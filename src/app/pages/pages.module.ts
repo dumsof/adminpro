@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+/* porder utilizar la propiedad para enlazar un elemento ngModel */
+import { FormsModule } from "@angular/forms";
 
 /* componentes */
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,6 +14,9 @@ import { SharedModule } from '../shared/shared.module';
 /* rutas hijas que serian las page */
 import { PAGES_ROUTES } from './pages.routes';
 
+/* TODU: se debe borrar y cambiar */
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+
 
 
 @NgModule({
@@ -19,17 +24,20 @@ import { PAGES_ROUTES } from './pages.routes';
         PagesComponent,
         DashboardComponent,
         ProgressComponent,
-        Graficas1Component
+        Graficas1Component,
+        IncrementadorComponent
     ],
     exports: [
         PagesComponent,
         DashboardComponent,
         ProgressComponent,
-        Graficas1Component
+        Graficas1Component,
+        IncrementadorComponent
     ],
     imports: [
         SharedModule,
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        FormsModule
     ]
 })
 export class PagesModule { }

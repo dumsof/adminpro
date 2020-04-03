@@ -1,1 +1,29 @@
-<p>progress works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Progreso..</h5>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValueNow]="progreso" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso +'%'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador leyenda="Barra progreso azul" [progreso]="20"></app-incrementador>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador leyenda="Barra progreso verde" [progreso]="20"></app-incrementador>
+            </div>
+        </div>
+    </div>
+</div>
