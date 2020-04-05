@@ -4,7 +4,11 @@
             <div class="card-body">
                 <h5 class="card-title">Progreso..</h5>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValueNow]="progreso" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso +'%'"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValueNow]="progresoUno" aria-valuemin="0" aria-valuemax="100" [style.width]="progresoUno +'%'"></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.ariaValueNow]="progresoDos" aria-valuemin="0" aria-valuemax="100" [style.width]="progresoDos +'%'"></div>
                 </div>
             </div>
         </div>
@@ -15,14 +19,14 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-incrementador leyenda="Barra progreso azul" [progreso]="20"></app-incrementador>
+                <app-incrementador (eventCambioValorProgreso)="actualizarProgresoUno($event)" leyenda="Barra progreso azul" [progreso]="progresoUno"></app-incrementador>
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-incrementador leyenda="Barra progreso verde" [progreso]="20"></app-incrementador>
+                <app-incrementador (eventCambioValorProgreso)="actualizarProgresoDos($event)" leyenda="Barra progreso verde" [progreso]="progresoDos"></app-incrementador>
             </div>
         </div>
     </div>
