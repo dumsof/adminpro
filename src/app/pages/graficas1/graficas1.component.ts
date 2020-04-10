@@ -35,22 +35,10 @@ export class Graficas1Component implements OnInit {
       'leyenda': '¿Le importa que le den gases?'
     },
   };
- /*  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: number[] = [350, 450, 100];
-  public doughnutChartType: ChartType = 'doughnut'; */
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  // events
-  /* public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  } */
 
 }
