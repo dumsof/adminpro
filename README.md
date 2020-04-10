@@ -33,6 +33,9 @@ git tag -a v1.0.0 -m "Versión 1"
 comando para subir el tag
 git push --tag
 
+comando subir todos los tag
+git push --tags
+
 ## DUM: COMANDOS PARA CLI GENERAR COMPONENTES
 con este comando se genera el componente sin el archivo de prueba unitaria y hoja de estilo.
 ng g c shared/breadcrumbs --skip-tests -s
