@@ -1,16 +1,16 @@
 <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div>
-                    <div>
-                        <div style="display: block">
-                            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
-                        </canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-6">
+        <app-grafico-dona [etiquetaTitulo]="graficos.grafico1.labels" [datosMostrar]="graficos.grafico1.data" [tipoGrafico]="graficos.grafico1.type"></app-grafico-dona>
+    </div>
+    <div class="col-6">
+        <app-grafico-dona [etiquetaTitulo]="graficos.grafico2.labels" [datosMostrar]="graficos.grafico2.data" [tipoGrafico]="graficos.grafico2.type"></app-grafico-dona>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <app-grafico-dona [etiquetaTitulo]="graficos.grafico3.labels" [datosMostrar]="graficos.grafico3.data" [tipoGrafico]="graficos.grafico3.type"></app-grafico-dona>
+    </div>
+    <div class="col-6">
+        <app-grafico-dona [etiquetaTitulo]="graficos.grafico4.labels" [datosMostrar]="graficos.grafico4.data" [tipoGrafico]="graficos.grafico4.type"></app-grafico-dona>
     </div>
 </div>
