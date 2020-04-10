@@ -16,8 +16,8 @@ import { PAGES_ROUTES } from './pages.routes';
 
 /* TODU: se debe borrar y cambiar */
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
-
-
+/* importar la libreria para trabajar con los graficos */
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
     declarations: [
@@ -37,7 +37,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
     imports: [
         SharedModule,
         PAGES_ROUTES,
-        FormsModule
+        FormsModule,
+        ChartsModule
     ]
 })
 export class PagesModule { }

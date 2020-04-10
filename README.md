@@ -33,7 +33,7 @@ git tag -a v1.0.0 -m "Versión 1"
 comando para subir el tag
 git push --tag
 
-## DUM: COMANDOS PARA CLI GENERAR COMPONENES
+## DUM: COMANDOS PARA CLI GENERAR COMPONENTES
 con este comando se genera el componente sin el archivo de prueba unitaria y hoja de estilo.
 ng g c shared/breadcrumbs --skip-tests -s
 
@@ -42,3 +42,9 @@ ng g s shared --skip-tests
 
 se utiliza --flat para que no cree una carpeta al componente con el mismo nombre del mismo.
 ng g c pages/pages --skip-tests -s --flat
+
+## GRAFICOS
+
+se puede instalar ng2-charts usuando npm
+npm install ng2-charts --save
+
