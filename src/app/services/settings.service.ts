@@ -39,4 +39,3 @@ export class SettingsService {
     this.guardarAjustes();
   }
 }
-

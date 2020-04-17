@@ -13,6 +13,7 @@ export class AccoutSettingsComponent implements OnInit {
   constructor(public servicioSettings: SettingsService) { }
 
   ngOnInit(): void {
+    this.colocarCheck();
   }
   cambiarColor(tema: string, link: any) {
     /* marcar el check selecionado para el color de la configuración */
@@ -25,8 +26,19 @@ export class AccoutSettingsComponent implements OnInit {
 
     for (const selector of selectores) {
       selector.classList.remove('working');
-
     }
     link.classList.add('working');
+  }
+
+  /* permitir que el sistema presente el check del tema seleccionado */
+  colocarCheck() {
+    const selectores: any = document.getElementsByClassName('selector');
+    const tema = this.servicioSettings.ajuste.tema;
+    for (const selector of selectores) {
+      selector.classList.remove('working');
+      if (selector.getAttribute('data-theme') === tema) {
+        selector.classList.add('working');
+      }
+    }
   }
 }
