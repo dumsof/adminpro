@@ -26,6 +26,8 @@ export class SettingsService {
       /* pasar string formato json a objeto de interfaz ajustes json.parse */
       this.ajuste = JSON.parse(localStorage.getItem('ajustes'));
       this.aplicarTema(this.ajuste.tema);
+    } else {
+      this.aplicarTema(this.ajuste.tema);
     }
   }
 
