@@ -19,6 +19,7 @@ import { PAGES_ROUTES } from './pages.routes';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 /* importar la libreria para trabajar con los graficos */
 import { ChartsModule } from 'ng2-charts';
+import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ChartsModule } from 'ng2-charts';
         ProgressComponent,
         Graficas1Component,
         IncrementadorComponent,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AccoutSettingsComponent
     ],
     exports: [
         PagesComponent,

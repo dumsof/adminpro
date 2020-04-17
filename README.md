@@ -46,6 +46,9 @@ ng g s shared --skip-tests
 se utiliza --flat para que no cree una carpeta al componente con el mismo nombre del mismo.
 ng g c pages/pages --skip-tests -s --flat
 
+utilizar -modules o -m para indicar en que modulo se crea la pagina o componente.
+ng g c pages/accoutSettings --skip-tests -s -m=pages
+
 ## GRAFICOS
 
 se puede instalar ng2-charts usuando npm

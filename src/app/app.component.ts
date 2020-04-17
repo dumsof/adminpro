@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'adminpro';
+  /* por defecto cuando se instancie el objeto llama el contructor de settingsService y el metodo cargarAjustes()   */
+  constructor(public servicioSettings: SettingsService) { }
 }

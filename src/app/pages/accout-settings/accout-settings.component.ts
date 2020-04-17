@@ -1,0 +1,32 @@
+import { Component, Inject, OnInit } from '@angular/core';
+
+import { SettingsService } from '../../services/settings.service';
+
+
+@Component({
+  selector: 'app-accout-settings',
+  templateUrl: './accout-settings.component.html',
+  styles: []
+})
+export class AccoutSettingsComponent implements OnInit {
+
+  constructor(public servicioSettings: SettingsService) { }
+
+  ngOnInit(): void {
+  }
+  cambiarColor(tema: string, link: any) {
+    /* marcar el check selecionado para el color de la configuración */
+    this.aplicarCheck(link);
+    this.servicioSettings.aplicarTema(tema);
+  }
+
+  aplicarCheck(link: any) {
+    const selectores: any = document.getElementsByClassName('selector');
+
+    for (const selector of selectores) {
+      selector.classList.remove('working');
+
+    }
+    link.classList.add('working');
+  }
+}

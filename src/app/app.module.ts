@@ -13,9 +13,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
+/* Servicios */
+import { SettingsService } from './services/settings.service';
+
 /* TUDO:temporal para quitar y pasar al modulo de page, cuando se lleve el componente incrementador */
 import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
