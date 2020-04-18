@@ -49,6 +49,9 @@ ng g c pages/pages --skip-tests -s --flat
 utilizar -modules o -m para indicar en que modulo se crea la pagina o componente.
 ng g c pages/accoutSettings --skip-tests -s -m=pages
 
+crear modulo sin carpeta
+ng g m services/service --flat
+
 ## GRAFICOS
 
 se puede instalar ng2-charts usuando npm
