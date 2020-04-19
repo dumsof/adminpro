@@ -20,6 +20,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 /* importar la libreria para trabajar con los graficos */
 import { ChartsModule } from 'ng2-charts';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
         Graficas1Component,
         IncrementadorComponent,
         GraficoDonaComponent,
-        AccoutSettingsComponent
+        AccoutSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     exports: [
         PagesComponent,

@@ -57,3 +57,4 @@ ng g m services/service --flat
 se puede instalar ng2-charts usuando npm
 npm install ng2-charts --save
 
+nota: el cli de forma automatica agrega el componente al modulo cercando
