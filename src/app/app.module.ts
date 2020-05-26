@@ -16,7 +16,7 @@ import { RegisterComponent } from '@/login/register.component';
 import { ServiceModule } from '@services/service.module';
 
 /* TUDO:temporal para quitar y pasar al modulo de page, cuando se lleve el componente incrementador */
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     APP_ROUTES,
     PagesModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceModule
   ],
   providers: [],
