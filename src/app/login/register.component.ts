@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 /* DUM: servicios */
 import { UsuarioService } from '@services/service.index';
 import { Usuario } from '@/models/usuario.model';
+import { Router } from '@angular/router';
 /* DUM: se llama la función del archivo de js/custom.js para que se cargue el menu dinamico sidebar */
 declare function inicio_plugins();
 
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public usuarioService: UsuarioService, private router:Router) { }
 
   ngOnInit(): void {
     inicio_plugins();
@@ -57,16 +58,8 @@ export class RegisterComponent implements OnInit {
     }
     console.log(this.forma.value);
 
-    /*  const usuarioCrear = new Usuario(
-       this.forma.value.nombre,
-       this.forma.value.apellidos,
-       this.forma.value.correo,
-       this.forma.value.password
- 
-     ); */
-
-    this.usuarioService.crearUsuario(this.forma.value).subscribe(respuesta => {
-      console.log('Respuesta: ', respuesta);
+    this.usuarioService.crearUsuario(this.forma.value).subscribe(respuesta => {   
+      this.router.navigate(['/login']);
     });
   }
 
