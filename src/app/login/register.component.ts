@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
+/* DUM: servicios */
+import { UsuarioService } from '@services/service.index';
+import { Usuario } from '@/models/usuario.model';
 /* DUM: se llama la función del archivo de js/custom.js para que se cargue el menu dinamico sidebar */
 declare function inicio_plugins();
 
@@ -11,14 +15,14 @@ declare function inicio_plugins();
 })
 export class RegisterComponent implements OnInit {
 
-  format: FormGroup;
+  forma: FormGroup;
 
-  constructor() { }
+  constructor(public usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     inicio_plugins();
 
-    this.format = new FormGroup({
+    this.forma = new FormGroup({
       nombre: new FormControl(null, Validators.required),
       apellidos: new FormControl(null, Validators.required),
       correo: new FormControl(null, [Validators.required, Validators.email]),
@@ -43,14 +47,27 @@ export class RegisterComponent implements OnInit {
   }
 
   registrarUsuario() {
-    if (this.format.invalid) {
+    if (this.forma.invalid) {
       return;
     }
-    if (!this.format.value.condiciones) {
+    if (!this.forma.value.condiciones) {
+      Swal.fire('Importante', 'Debe aceptar las condiciones', 'warning');
       console.log('Debe de aceptar las condiciones');
       return;
     }
-    console.log(this.format.value);
+    console.log(this.forma.value);
+
+    /*  const usuarioCrear = new Usuario(
+       this.forma.value.nombre,
+       this.forma.value.apellidos,
+       this.forma.value.correo,
+       this.forma.value.password
+ 
+     ); */
+
+    this.usuarioService.crearUsuario(this.forma.value).subscribe(respuesta => {
+      console.log('Respuesta: ', respuesta);
+    });
   }
 
 }
