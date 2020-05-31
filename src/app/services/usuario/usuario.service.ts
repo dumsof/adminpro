@@ -12,8 +12,20 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class UsuarioService {
-
+  usuario: Usuario;
+  token: string;
   constructor(public http: HttpClient) { }
+
+  loginGoogle(tokenGoogle: string) {
+    const usuarioLogueo = {
+      token: tokenGoogle
+    };
+    const url = `${environment.URL_SERVICIOS}/login/google`;
+    return this.http.post(url, usuarioLogueo).pipe(map((respuesta: any) => {
+      this.guardarStorage(respuesta.id, respuesta.token, respuesta.usuario);
+      return respuesta.ok;
+    }));
+  }
 
   login(usuario: Usuario, recordar: boolean = false) {
     const usuarioLogueo = {
@@ -27,9 +39,7 @@ export class UsuarioService {
     }
     const url = `${environment.URL_SERVICIOS}/login`;
     return this.http.post(url, usuarioLogueo).pipe(map((respuesta: any) => {
-      localStorage.setItem('id', respuesta.id);
-      localStorage.setItem('token', respuesta.id);
-      localStorage.setItem('usuario', JSON.stringify(respuesta.usuario));
+      this.guardarStorage(respuesta.id, respuesta.token, respuesta.usuario);
       return respuesta.ok;
     }));
   }
@@ -48,5 +58,12 @@ export class UsuarioService {
     }));
   }
 
+  guardarStorage(id: string, token: string, usuario: Usuario) {
+    localStorage.setItem('id', id);
+    localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+    this.usuario = usuario;
+    this.token = token;
+  }
 
 }
