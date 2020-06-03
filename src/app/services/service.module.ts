@@ -9,8 +9,10 @@ import {
   SettingsService,
   SidebarService,
   SharedService,
-  UsuarioService
+  UsuarioService,
+  LoginGuardGuard
 } from '@services/service.index';
+
 
 
 
@@ -20,7 +22,8 @@ import {
     SettingsService,
     SidebarService,
     SharedService,
-    UsuarioService
+    UsuarioService,
+    LoginGuardGuard
   ],
   imports: [
     CommonModule,

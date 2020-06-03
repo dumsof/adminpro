@@ -1,6 +1,7 @@
 /* el httpclient se debe importar en el modulo HttpClientModule */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 /* importar modelo */
@@ -14,7 +15,21 @@ import Swal from 'sweetalert2';
 export class UsuarioService {
   usuario: Usuario;
   token: string;
-  constructor(public http: HttpClient) { }
+  constructor(private router: Router, public http: HttpClient) { this.cargarStore(); }
+
+  cargarStore() {
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+      this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    } else {
+      this.token = '';
+      this.usuario = null;
+    }
+  }
+
+  estaLogueado() {
+    return this.token.length > 0;
+  }
 
   loginGoogle(tokenGoogle: string) {
     const usuarioLogueo = {
@@ -64,6 +79,15 @@ export class UsuarioService {
     localStorage.setItem('usuario', JSON.stringify(usuario));
     this.usuario = usuario;
     this.token = token;
+  }
+
+  logout() {
+    this.usuario = null;
+    this.token = '';
+    localStorage.removeItem('id');
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    this.router.navigate(['/login']);
   }
 
 }
