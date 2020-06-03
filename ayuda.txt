@@ -1,0 +1,6 @@
+comandos
+#como crear un pipes
+ng g p pipes/imagen
+
+#como crear un modulo en la carpeta de pipe, --flat cree dentro de pipes
+ng g m pipes/pipes --flat

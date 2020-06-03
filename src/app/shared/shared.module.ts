@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+/* Modulos */
+import { PipesModule } from '@/pipes/pipes.module';
+
 /* DUM: componentes del modulo que se proveen en el módulo principal */
 import { NopagefoundComponent } from '@shared/nopagefound/nopagefound.component';
 import { HeaderComponent } from '@shared/header/header.component';
@@ -14,7 +17,9 @@ import { BreadcrumbsComponent } from '@shared/breadcrumbs/breadcrumbs.component'
         con esto se puede manejar en el sidebar routerlink, routeractive */
         RouterModule,
         /*DUM: se necesita para el uso de las directivas de angular,Ej ngIf, ngFor en el componente sidebar */
-        CommonModule
+        CommonModule,
+        /* DUM: se importa el pipe de la imagen */
+        PipesModule
     ],
     declarations: [
         NopagefoundComponent,
