@@ -73,6 +73,16 @@ export class UsuarioService {
     }));
   }
 
+  actualizarUsuario(usuario: Usuario) {
+
+    const url = `${environment.URL_SERVICIOS}/usuario/${usuario._id}?token=${this.token}`;
+    return this.http.put(url, usuario).pipe(map((respuesta: any) => {     
+      this.guardarStorage(usuario._id, this.token, respuesta.usuario);
+      Swal.fire('Usuario Actualizado', `Usuario actualizado con éxito.`, 'success');
+      return true;
+    }));
+  }
+
   guardarStorage(id: string, token: string, usuario: Usuario) {
     localStorage.setItem('id', id);
     localStorage.setItem('token', token);
