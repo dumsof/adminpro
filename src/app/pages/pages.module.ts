@@ -8,6 +8,7 @@ import { ProgressComponent } from '@/pages/progress/progress.component';
 import { Graficas1Component } from '@/pages/graficas1/graficas1.component';
 import { PagesComponent } from '@/pages/pages.component';
 import { GraficoDonaComponent } from '@/components/grafico-dona/grafico-dona.component';
+import { ProfileComponent } from '@pages/profile/profile.component';
 
 /* modulos */
 import { SharedModule } from '@/shared/shared.module';
@@ -35,7 +36,8 @@ import { RxjsComponent } from '@/pages/rxjs/rxjs.component';
         GraficoDonaComponent,
         AccoutSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     exports: [
         PagesComponent,
