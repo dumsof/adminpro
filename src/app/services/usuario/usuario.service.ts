@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { Usuario } from '@/models/usuario.model';
 import { environment } from '@env';
 import Swal from 'sweetalert2';
+import { SubirArchivoService } from '@/services/subir-archivo/subir-archivo.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import Swal from 'sweetalert2';
 export class UsuarioService {
   usuario: Usuario;
   token: string;
-  constructor(private router: Router, public http: HttpClient) { this.cargarStore(); }
+  constructor(private router: Router, public http: HttpClient, private servicioSubirArchivo: SubirArchivoService) { this.cargarStore(); }
 
   cargarStore() {
     if (localStorage.getItem('token')) {
@@ -76,7 +77,7 @@ export class UsuarioService {
   actualizarUsuario(usuario: Usuario) {
 
     const url = `${environment.URL_SERVICIOS}/usuario/${usuario._id}?token=${this.token}`;
-    return this.http.put(url, usuario).pipe(map((respuesta: any) => {     
+    return this.http.put(url, usuario).pipe(map((respuesta: any) => {
       this.guardarStorage(usuario._id, this.token, respuesta.usuario);
       Swal.fire('Usuario Actualizado', `Usuario actualizado con éxito.`, 'success');
       return true;
@@ -89,6 +90,17 @@ export class UsuarioService {
     localStorage.setItem('usuario', JSON.stringify(usuario));
     this.usuario = usuario;
     this.token = token;
+  }
+
+  cambiarImagen(archivo: File, id: string) {
+    console.log(id);
+    this.servicioSubirArchivo.subirArchivo(archivo, 'usuarios', id).then((resp: any) => {
+      this.usuario.img = resp.usuario.img;
+      this.guardarStorage(id, this.token, this.usuario);
+      Swal.fire('Imagen Actualizada', 'Imagen perfil actualizada con éxito.', 'info');
+    }).catch(resp => {
+      console.error('Error cambiar imagen', resp);
+    });
   }
 
   logout() {
