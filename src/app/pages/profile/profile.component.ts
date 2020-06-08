@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 export class ProfileComponent implements OnInit {
   usuario: Usuario;
   imagenSubir: File;
+  imagenTemp: string | ArrayBuffer;
   constructor(private servicioUsuario: UsuarioService) { }
 
   ngOnInit(): void {
@@ -30,14 +31,21 @@ export class ProfileComponent implements OnInit {
 
   seleccionImage(archivo: File) {
     if (!archivo) {
+      this.imagenSubir = null;
       return;
     }
     if (archivo.type.indexOf('image/') < 0) {
+      this.imagenSubir = null;
       Swal.fire('Imagen', 'Debe seleccionar un archivo que sea una imagen.', 'info');
       return;
     }
     console.log('Evento:', archivo);
     this.imagenSubir = archivo;
+
+    /* DUM: cargar la imagen seleccionada temporal */
+    const reader = new FileReader();
+    const urlImagenTempo = reader.readAsDataURL(archivo);
+    reader.onloadend = () => this.imagenTemp = reader.result;
   }
 
   cambiarImagen() {

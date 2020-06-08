@@ -13,6 +13,8 @@ import { ProfileComponent } from '@pages/profile/profile.component';
 /* modulos */
 import { SharedModule } from '@/shared/shared.module';
 import { PipesModule } from '@/pipes/pipes.module';
+/* para utilizr el ngIf */
+import { CommonModule } from '@angular/common';
 
 /* rutas hijas que serian las page */
 import { PAGES_ROUTES } from './pages.routes';
@@ -48,6 +50,7 @@ import { RxjsComponent } from '@/pages/rxjs/rxjs.component';
         GraficoDonaComponent
     ],
     imports: [
+        CommonModule,
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
