@@ -102,6 +102,20 @@ export class UsuarioService {
     });
   }
 
+  cargarUsuarios(desde: number = 0) {
+    const url = `${environment.URL_SERVICIOS}/usuario?desde=${desde}`;
+    return this.http.get(url).pipe(map((respuesta: any) => {
+      return respuesta;
+    }));
+  }
+
+  buscarUsuarios(terminoBusqueda: string) {
+    const url = `${environment.URL_SERVICIOS}/busqueda/coleccion/usuarios/${terminoBusqueda}`;
+    return this.http.get(url).pipe(map((respuesta: any) => {
+      return respuesta.usuarios;
+    }));
+  }
+
   logout() {
     this.usuario = null;
     this.token = '';
