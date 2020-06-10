@@ -24,9 +24,7 @@ export class ProfileComponent implements OnInit {
       this.usuario.email = usuario.email;
     }
 
-    this.servicioUsuario.actualizarUsuario(this.usuario).subscribe(respuesta => {
-      console.log('respuesta actualizar usuario', respuesta);
-    });
+    this.servicioUsuario.actualizarUsuario(this.usuario).subscribe();
   }
 
   seleccionImage(archivo: File) {
@@ -38,10 +36,8 @@ export class ProfileComponent implements OnInit {
       this.imagenSubir = null;
       Swal.fire('Imagen', 'Debe seleccionar un archivo que sea una imagen.', 'info');
       return;
-    }
-    console.log('Evento:', archivo);
+    }   
     this.imagenSubir = archivo;
-
     /* DUM: cargar la imagen seleccionada temporal */
     const reader = new FileReader();
     const urlImagenTempo = reader.readAsDataURL(archivo);
@@ -52,8 +48,7 @@ export class ProfileComponent implements OnInit {
     if (!this.imagenSubir) {
       Swal.fire('No Existe Imagen', 'Debe seleccionar la imagen que desea subir.', 'info');
       return;
-    }
-    console.log('1 jkdjkdjk');
+    }   
     this.servicioUsuario.cambiarImagen(this.imagenSubir, this.usuario._id);
   }
 

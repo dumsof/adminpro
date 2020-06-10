@@ -93,7 +93,6 @@ export class UsuarioService {
   }
 
   cambiarImagen(archivo: File, id: string) {
-    console.log(id);
     this.servicioSubirArchivo.subirArchivo(archivo, 'usuarios', id).then((resp: any) => {
       this.usuario.img = resp.usuario.img;
       this.guardarStorage(id, this.token, this.usuario);

@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
     this.auth2.attachClickHandler(element, {}, googleUser => {
       /*  const profile = googleUser.getBasicProfile(); */
       const token = googleUser.getAuthResponse().id_token;
-      console.log(token);
       this.usuarioService.loginGoogle(token)
         .subscribe(respuesta => window.location.href = '#/dashboard'
           , error => Swal.fire('Usuario no Éxiste', `El usuario o contraseña son invalidos.`, 'info'));
@@ -54,9 +53,6 @@ export class LoginComponent implements OnInit {
     if (!formulario.valid) {
       return;
     }
-
-    console.log(formulario.valid, formulario.value.email);
-
     this.usuarioService.login(formulario.value, formulario.value.recuerdame)
       .subscribe(respuesta => this.ruoter.navigate(['/dashboard'])
         , error => Swal.fire('Usuario no Éxiste', `El usuario o contraseña son invalidos.`, 'info'));
