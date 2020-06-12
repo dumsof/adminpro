@@ -10,6 +10,7 @@ import { PagesComponent } from '@/pages/pages.component';
 import { GraficoDonaComponent } from '@/components/grafico-dona/grafico-dona.component';
 import { ProfileComponent } from '@pages/profile/profile.component';
 import { UsuariosComponent } from '@pages/usuarios/usuarios.component';
+import { ModalUploadComponent } from '@/components/modal-upload/modal-upload.component';
 
 /* modulos */
 import { SharedModule } from '@/shared/shared.module';
@@ -41,7 +42,8 @@ import { RxjsComponent } from '@/pages/rxjs/rxjs.component';
         PromesasComponent,
         RxjsComponent,
         ProfileComponent,
-        UsuariosComponent
+        UsuariosComponent,
+        ModalUploadComponent
     ],
     exports: [
         PagesComponent,
