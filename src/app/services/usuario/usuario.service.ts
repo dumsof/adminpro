@@ -78,7 +78,9 @@ export class UsuarioService {
 
     const url = `${environment.URL_SERVICIOS}/usuario/${usuario._id}?token=${this.token}`;
     return this.http.put(url, usuario).pipe(map((respuesta: any) => {
-      this.guardarStorage(usuario._id, this.token, respuesta.usuario);
+      if (usuario._id === this.usuario._id) {
+        this.guardarStorage(usuario._id, this.token, respuesta.usuario);
+      }
       Swal.fire('Usuario Actualizado', `Usuario actualizado con éxito.`, 'success');
       return true;
     }));
@@ -113,6 +115,13 @@ export class UsuarioService {
     const url = `${environment.URL_SERVICIOS}/busqueda/coleccion/usuarios/${terminoBusqueda}`;
     return this.http.get(url).pipe(map((respuesta: any) => {
       return respuesta.usuarios;
+    }));
+  }
+
+  borrarUsuario(id: string) {
+    const url = `${environment.URL_SERVICIOS}/usuario/${id}?token=${this.token}`;
+    return this.http.delete(url).pipe(map((respuesta: any) => {
+      return respuesta;
     }));
   }
 

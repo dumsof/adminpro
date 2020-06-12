@@ -43,7 +43,15 @@
                             <td>{{usuario.email}}</td>
                             <td>{{usuario.nombre}}</td>
                             <td>{{usuario.apellidos}}</td>
-                            <td>{{usuario.role}}</td>
+                            <td>
+
+                                <select [(ngModel)]="usuario.role" name="role" class="form-control">
+                                    <option value="ADMIN_ROLE">Administrador</option>
+                                    <option value="USER_ROLE">Usuario</option>
+
+                                </select>
+
+                            </td>
                             <td>
                                 <label *ngIf="usuario.google" class="label label-danger">
                                     Google
@@ -53,11 +61,11 @@
                                 </label>
                             </td>
                             <td class="float-right">
-                                <button class="btn btn-primary">
+                                <button (click)="guardarUsuario(usuario)" class="btn btn-primary">
                                     <i class="fa fa-save"></i>
                                 </button>
                                 <div class="btn-group" role="group"> | | </div>
-                                <button class="btn btn-danger">
+                                <button (click)="borrarUsuario(usuario)" class="btn btn-danger">
                                     <i class="fa fa-trash-o"></i>
                                 </button>
                             </td>
