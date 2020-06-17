@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 /* DUM: poder manejar peticiones http */
 import { HttpClientModule } from '@angular/common/http';
 
+
 /* DUM: importar los servicios para despues proveerlos en el modulo principal */
 import {
   SettingsService,
   SidebarService,
   SharedService,
   UsuarioService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  ModalUploadService
 } from '@services/service.index';
 
 
@@ -23,7 +25,8 @@ import {
     SidebarService,
     SharedService,
     UsuarioService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    ModalUploadService
   ],
   imports: [
     CommonModule,
