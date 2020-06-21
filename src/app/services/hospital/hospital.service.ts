@@ -18,8 +18,8 @@ export class HospitalService {
   constructor(private router: Router, public http: HttpClient, private servicioSubirArchivo: SubirArchivoService) { }
 
   cargarHospitales() { }
-  obtenerHospital() { }
-
+  obtenerHospital(id: string) { }
+  borrarHospital(id: string) { }
   crearHospital(nombreHospital: string) {
     const datosHospital = {
 
@@ -29,6 +29,11 @@ export class HospitalService {
       Swal.fire('Hospital Creado', `Hospital ${nombreHospital} creado con éxito.`, 'success');
       return respuesta.usuario;
     }));
+  }
+
+  buscarHospital(terminoBusqueda: string) { }
+  actualizarHospital(hospital: Hospital) {
+
   }
 
 }
