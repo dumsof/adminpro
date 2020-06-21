@@ -10,7 +10,7 @@ import { RxjsComponent } from '@pages/rxjs/rxjs.component';
 import { LoginGuardGuard } from '@/services/service.index';
 import { ProfileComponent } from '@pages/profile/profile.component';
 import { UsuariosComponent } from '@pages/usuarios/usuarios.component';
-
+import { HospitalesComponent } from '@pages/hospitales/hospitales.component';
 
 const pagesRoutes: Routes = [
     /* debido que se  quiere que el login tenga un estilo diferente se pasa toda la logica 
@@ -30,7 +30,8 @@ const pagesRoutes: Routes = [
             { path: 'account-settings', component: AccoutSettingsComponent, data: { titulo: 'Ajustes del Tema' } },
             { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de Usuario' } },
             /* DUM: paginas de mantenimiento */
-            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimientos Usuarios' } },
+            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimientos de usuario' } },
+            { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimientos de hospitales' } },
             /* DUM: la ruta por defecto direcciona al dashboard */
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ]

@@ -11,6 +11,7 @@ import { GraficoDonaComponent } from '@/components/grafico-dona/grafico-dona.com
 import { ProfileComponent } from '@pages/profile/profile.component';
 import { UsuariosComponent } from '@pages/usuarios/usuarios.component';
 import { ModalUploadComponent } from '@/components/modal-upload/modal-upload.component';
+import { HospitalesComponent } from '@/pages/hospitales/hospitales.component';
 
 /* modulos */
 import { SharedModule } from '@/shared/shared.module';
@@ -43,7 +44,8 @@ import { RxjsComponent } from '@/pages/rxjs/rxjs.component';
         RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        HospitalesComponent
     ],
     exports: [
         PagesComponent,
