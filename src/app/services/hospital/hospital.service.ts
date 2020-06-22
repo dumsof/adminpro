@@ -14,26 +14,61 @@ import { SubirArchivoService } from '@/services/subir-archivo/subir-archivo.serv
   providedIn: 'root'
 })
 export class HospitalService {
+  token: string;
+  constructor(private router: Router, public http: HttpClient, private servicioSubirArchivo: SubirArchivoService) { this.cargarStore() }
 
-  constructor(private router: Router, public http: HttpClient, private servicioSubirArchivo: SubirArchivoService) { }
+  cargarStore() {
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+    } else {
+      this.token = '';
+    }
+  }
 
-  cargarHospitales() { }
-  obtenerHospital(id: string) { }
-  borrarHospital(id: string) { }
+  cargarHospitales() {
+    const url = `${environment.URL_SERVICIOS}/hospital`;
+    return this.http.get(url).pipe(map((respuesta: any) => {
+      return respuesta;
+    }));
+  }
+
+  obtenerHospital(id: string) {
+    const url = `${environment.URL_SERVICIOS}/hospital/${id}?token=${this.token}`;
+    return this.http.get(url).pipe(map((respuesta: any) => {
+      return respuesta;
+    }));
+  }
+
+  borrarHospital(id: string) {
+    const url = `${environment.URL_SERVICIOS}/hospital/${id}?token=${this.token}`;
+    return this.http.delete(url).pipe(map((respuesta: any) => {
+      return respuesta;
+    }));
+  }
+
   crearHospital(nombreHospital: string) {
     const datosHospital = {
-
+      nombre: nombreHospital
     };
-    const url = `${environment.URL_SERVICIOS}/hospital`;
-    return this.http.post(url, datosHospital).pipe(map((respuesta: any) => {
+    const url = `${environment.URL_SERVICIOS}/hospital?token=${this.token}`;
+    return this.http.post(url, { nombre: nombreHospital }).pipe(map((respuesta: any) => {
       Swal.fire('Hospital Creado', `Hospital ${nombreHospital} creado con éxito.`, 'success');
       return respuesta.usuario;
     }));
   }
 
-  buscarHospital(terminoBusqueda: string) { }
+  buscarHospital(terminoBusqueda: string) {
+    const url = `${environment.URL_SERVICIOS}/busqueda/coleccion/hospitales/${terminoBusqueda}`;
+    return this.http.get(url).pipe(map((respuesta: any) => {
+      return respuesta.hospitales;
+    }));
+  }
   actualizarHospital(hospital: Hospital) {
-
+    const url = `${environment.URL_SERVICIOS}/hospital/${hospital._id}?token=${this.token}`;
+    return this.http.put(url, hospital).pipe(map((respuesta: any) => {
+      Swal.fire('Hospital Actualizado', `Hospital actualizado con éxito.`, 'success');
+      return true;
+    }));
   }
 
 }
